@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/banking-app   # DB name & port from your docker run cmd
+    username: admin                                     # POSTGRES_USER
+    password: admin                                     # POSTGRES_PASSWORD
+    # driver-class-name: org.postgresql.Driver            # Pg JDBC driver
+    # hikari:                                             # (optional) fine‑tune the connection pool
+    #   maximum-pool-size: 10
+  jpa:
+    # open-in-view: false
+    hibernate:
+      ddl-auto: update                                  # dev‑friendly: creates/updates tables
+    # properties:
+    #   hibernate:
+    #     dialect: org.hibernate.dialect.PostgreSQLDialect
+#   sql:
+#     init:
+#       mode: embedded                                    # disable Spring’s SQL runner unless you need it
+#       platform: postgres
+
+# # Optional but common:
+# server:
+#   port: 8080
+# logging:
+#   level:
+#     org.hibernate.SQL: debug        # log the SQL going to Postgres (handy while debugging)
