@@ -7,6 +7,10 @@ This is an educational project for spring boot 3 to implement a simple banking a
 * Transfer funds
 * Review past transactions
 
+# Docker Image
+
+You can access to the docker image with `docker pull muc4hit/banking-app` (if still available).
+
 # Spring Boot 3 Architecture
 
 I prepared a structure for a general spring boot 3 app.
