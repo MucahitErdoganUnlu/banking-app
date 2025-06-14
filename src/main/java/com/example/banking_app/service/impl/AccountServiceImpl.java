@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.example.banking_app.dto.AccountDto;
+import com.example.banking_app.dto.TransferFundDto;
 import com.example.banking_app.entity.Account;
 import com.example.banking_app.exception.AccountException;
 import com.example.banking_app.mapper.AccountMapper;
@@ -81,5 +82,16 @@ public class AccountServiceImpl implements AccountService {
 
     }
 
+    @Override
+    public void transferFunds(TransferFundDto transferFundDto) {
+        
+        Account fromAccount = accountRepository.findById(transferFundDto.fromAccountId())
+                                .orElseThrow(() -> new AccountException(ACCOUNT_NOT_EXIST_MESSAGE));
 
+        Account toAccount = accountRepository.findById(transferFundDto.toAccountId())
+        .orElseThrow(() -> new AccountException(ACCOUNT_NOT_EXIST_MESSAGE));
+
+        fromAccount.setBalance(fromAccount.getBalance() - transferFundDto.amount());
+        toAccount.setBalance(toAccount.getBalance() + transferFundDto.amount());
+    }
 }

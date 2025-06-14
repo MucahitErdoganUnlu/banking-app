@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.banking_app.dto.AccountDto;
+import com.example.banking_app.dto.TransferFundDto;
 import com.example.banking_app.service.AccountService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -71,4 +72,12 @@ public class AccountController {
         accountService.deleteAccount(id);
         return ResponseEntity.ok("Account deleted successfully!");
     }
+
+    @PostMapping("/transfer")
+    public ResponseEntity<String> transferFunds(@RequestBody TransferFundDto transferFundDto) {
+        
+        accountService.transferFunds(transferFundDto);
+        return ResponseEntity.ok("Transfer successfull!");
+    }
+    
 }
