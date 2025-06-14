@@ -2,6 +2,7 @@ package com.example.banking_app.service;
 
 import java.util.List;
 import com.example.banking_app.dto.AccountDto;
+import com.example.banking_app.dto.TransactionDto;
 import com.example.banking_app.dto.TransferFundDto;
 
 public interface AccountService {
@@ -19,4 +20,6 @@ public interface AccountService {
     void deleteAccount(Long id);
 
     void transferFunds(TransferFundDto transferFundDto);
+
+    List<TransactionDto> getAccountTransactions(Long accountId);
 }

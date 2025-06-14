@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.banking_app.dto.AccountDto;
+import com.example.banking_app.dto.TransactionDto;
 import com.example.banking_app.dto.TransferFundDto;
 import com.example.banking_app.service.AccountService;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -78,6 +80,11 @@ public class AccountController {
         
         accountService.transferFunds(transferFundDto);
         return ResponseEntity.ok("Transfer successfull!");
+    }
+    
+    @GetMapping("/{id}/transactions")
+    public ResponseEntity<List<TransactionDto>> getAccountTransactions(@PathVariable Long id) {
+        return ResponseEntity.ok(accountService.getAccountTransactions(id));
     }
     
 }
