@@ -1,8 +1,11 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]   # .env’i property kaynağı olarak ekle
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/banking-app   # DB name & port from your docker run cmd
-    username: admin                                     # POSTGRES_USER
-    password: admin                                     # POSTGRES_PASSWORD
+    url: ${DB_URL}   # DB name & port from your docker run cmd
+    username: ${DB_USERNAME}                                     # POSTGRES_USER
+    password: ${DB_PASSWORD}                                     # POSTGRES_PASSWORD
     # driver-class-name: org.postgresql.Driver            # Pg JDBC driver
     # hikari:                                             # (optional) fine‑tune the connection pool
     #   maximum-pool-size: 10
