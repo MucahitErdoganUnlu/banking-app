@@ -11,6 +11,12 @@ This is an educational project for spring boot 3 to implement a simple banking a
 
 You can access to the docker image with `docker pull muc4hit/banking-app` (if still available).
 
+# For A Quick Run
+
+1. Have a `docker-compose.yml` file from the repo.
+2. Have a .env file as in the template
+3. execute `docker compose up`
+
 # Spring Boot 3 Architecture
 
 I prepared a structure for a general spring boot 3 app.
