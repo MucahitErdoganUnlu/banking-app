@@ -1,15 +1,17 @@
-version: '3.8'
 services:
   db:
-    image: postgres:alpine
+    image: postgres:latest
+    container_name: postgres-db
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: banking-app
     ports:
       - "5432:5432"
+
   app:
-    build: .
+    image: muc4hit/banking-app:latest
+    container_name: spring-app
     depends_on:
       - db
     environment:
